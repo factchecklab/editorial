@@ -1,0 +1,173 @@
+{
+  "components": {
+    "report_card": {
+      "buttons": {
+        "close": "Close",
+        "reopen": "Reopen",
+        "new_topic": "New topic",
+        "match_topic": "Match topic",
+        "unmatch_topic": "Unmatch topic",
+        "find_similar_reports": "Find similar reports",
+        "select": "Select",
+        "unselect": "Unselect"
+      },
+      "descriptions": {
+        "similar_topics": "Similar topics",
+        "matched_topics": "Matched topics"
+      }
+    },
+    "topic_card": {
+      "buttons": {
+        "view_topic_details": "Read more",
+        "match_topic": "Match topic"
+      }
+    },
+    "edit_topic_card": {
+      "buttons": {
+        "edit_topic": "Edit topic"
+      }
+    }
+  },
+  "pages": {
+    "admin": {
+      "topics": {
+        "index": {
+          "title": "Manage Topics",
+          "placeholders": {
+            "search": "Search..."
+          },
+          "buttons": {
+            "search": "Search",
+            "create_topic": "Create topic",
+            "show_more": "Show more"
+          }
+        },
+        "id": {
+          "placeholders": {
+            "topic_title": "Topic title",
+            "response_entity": "Please select a responding entity",
+            "response_content": "Please input the response from the entity",
+            "original_message": "Please input the original message"
+          },
+          "descriptions": {
+            "title": "Title",
+            "response_entity": "Responding entity",
+            "response": "Response",
+            "original_message": "Original message"
+          },
+          "buttons": {
+            "save_topic": "Save",
+            "add_response": "Add new response",
+            "publish_topic": "Publish this topic",
+            "delete_response": "Delete"
+          },
+          "cover_image": {
+            "heading": "Cover Image",
+            "placeholder": "Click to browse for image or drag an image here",
+            "drop_hint": "Drop image here to upload",
+            "remove": "Remove"
+          },
+          "snackbars": {
+            "upload_asset": {
+              "error": {
+                "title": "Upload cover image",
+                "content": "An error has occurred when uploading cover image. Please check the file format and re-upload again."
+              }
+            },
+            "update_topic": {
+              "success": {
+                "title": "Update topic",
+                "content": "The topic is updated successfully."
+              },
+              "error": {
+                "title": "Update topic",
+                "content": "An error has occurred when updating the topic."
+              }
+            },
+            "create_topic": {
+              "success": {
+                "title": "Create topic",
+                "content": "The topic is created successfully."
+              },
+              "error": {
+                "title": "Create topic",
+                "content": "An error has occurred when creating the topic."
+              }
+            }
+          }
+        }
+      }
+    },
+    "reports": {
+      "new": {
+        "title": "Report Fake News",
+        "labels": {
+          "content": "Content",
+          "source": "Source",
+          "url": "URL",
+          "attachment": "Attachment"
+        },
+        "placeholders": {
+          "attachment": "Choose a file or drop it here..."
+        },
+        "buttons": {
+          "browse_attachment": "Browse",
+          "submit": "Submit",
+          "reset": "Reset",
+          "submit_anyway": "Submit Anyway",
+          "go_back": "Go Back"
+        },
+        "snackbars": {
+          "success": {
+            "title": "Report Fake News",
+            "content": "Thank you for your report. We will investigate the content as soon as possible."
+          },
+          "error": {
+            "title": "Report Fake News",
+            "content": "An error has occurred during submission. Please verify your input and submit again."
+          }
+        },
+        "found_similar_topics": "Found one similar topic: | Found { count } similar topics:"
+      }
+    },
+    "topics": {
+      "index": {
+        "title": "Topics",
+        "placeholders": {
+          "search": "Search..."
+        },
+        "buttons": {
+          "search": "Search",
+          "report_fake_news": "Report fake news",
+          "show_more": "Show more"
+        }
+      },
+      "id": {
+        "conclusion": {
+          "truthy": "Correct information",
+          "falsy": "False information",
+          "uncertain": "Uncertain information",
+          "disputed": "Disputed information"
+        },
+        "descriptions": {
+          "original_message": "Original message",
+          "responses": {
+            "review": "Reviewed by {name}",
+            "response": "Respond by {name}"
+          }
+        }
+      }
+    }
+  },
+  "models": {
+    "reports": {
+      "sources": {
+        "newspaper": "Newspaper",
+        "website": "Website",
+        "facebook": "Facebook",
+        "friends": "Friends",
+        "others": "Others"
+      }
+    }
+  }
+}

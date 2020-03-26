@@ -1,0 +1,173 @@
+{
+  "components": {
+    "report_card": {
+      "buttons": {
+        "close": "關閉",
+        "reopen": "重開",
+        "new_topic": "新主題",
+        "match_topic": "配對主題",
+        "unmatch_topic": "取消配對主題",
+        "find_similar_reports": "搜尋相似報告",
+        "select": "選擇",
+        "unselect": "取消選擇"
+      },
+      "descriptions": {
+        "similar_topics": "相似主題",
+        "matched_topics": "配對主題"
+      }
+    },
+    "topic_card": {
+      "buttons": {
+        "view_topic_details": "閱讀內文",
+        "match_topic": "配對主題"
+      }
+    },
+    "edit_topic_card": {
+      "buttons": {
+        "edit_topic": "修改主題"
+      }
+    }
+  },
+  "pages": {
+    "admin": {
+      "topics": {
+        "index": {
+          "title": "管理主題",
+          "placeholders": {
+            "search": "搜尋..."
+          },
+          "buttons": {
+            "search": "搜尋",
+            "create_topic": "建立主題",
+            "show_more": "查看更多"
+          }
+        },
+        "id": {
+          "placeholders": {
+            "topic_title": "標題",
+            "response_entity": "請選擇查證人",
+            "response_content": "請輸入查證結果",
+            "original_message": "請輸入原文"
+          },
+          "descriptions": {
+            "title": "標題",
+            "response_entity": "查證人",
+            "response": "回應",
+            "original_message": "原文內容"
+          },
+          "buttons": {
+            "save_topic": "儲存",
+            "add_response": "增加回應",
+            "publish_topic": "公開主題",
+            "delete_response": "刪除"
+          },
+          "cover_image": {
+            "heading": "封面圖片",
+            "placeholder": "按這裡選擇圖片或拖放圖片到這裡",
+            "drop_hint": "在這裡放開圖片來開始上傳",
+            "remove": "移除"
+          },
+          "snackbars": {
+            "upload_asset": {
+              "error": {
+                "title": "上傳圖片",
+                "content": "上傳圖片時出現錯誤。請檢查你的圖片檔案，然後重新再試。"
+              }
+            },
+            "update_topic": {
+              "success": {
+                "title": "修改主題",
+                "content": "成功修改主題。"
+              },
+              "error": {
+                "title": "修改主題",
+                "content": "出現錯誤，請重新再試。"
+              }
+            },
+            "create_topic": {
+              "success": {
+                "title": "建立主題",
+                "content": "成功建立主題。"
+              },
+              "error": {
+                "title": "建立主題",
+                "content": "出現錯誤，請重新再試。"
+              }
+            }
+          }
+        }
+      }
+    },
+    "reports": {
+      "new": {
+        "title": "報告假新聞",
+        "labels": {
+          "content": "內容",
+          "source": "來源",
+          "url": "網址",
+          "attachment": "附件"
+        },
+        "placeholders": {
+          "attachment": "請選擇檔案，或把檔案拖到這裡"
+        },
+        "buttons": {
+          "browse_attachment": "尋找檔案",
+          "submit": "提交",
+          "reset": "重設",
+          "submit_anyway": "確認提交",
+          "go_back": "回到上一步"
+        },
+        "snackbars": {
+          "success": {
+            "title": "報告假新聞",
+            "content": "謝謝你的報告，我們會儘快查證此內容。"
+          },
+          "error": {
+            "title": "報告假新聞",
+            "content": "報告時出現錯誤，請確認輸入無誤再發送。"
+          }
+        },
+        "found_similar_topics": "找到 {count} 個類似主題："
+      }
+    },
+    "topics": {
+      "index": {
+        "title": "主題",
+        "placeholders": {
+          "search": "搜尋..."
+        },
+        "buttons": {
+          "search": "搜尋",
+          "report_fake_news": "回報假新聞",
+          "show_more": "查看更多"
+        }
+      },
+      "id": {
+        "conclusion": {
+          "truthy": "真確無誤",
+          "falsy": "假消息",
+          "uncertain": "不確定",
+          "disputed": "有爭議"
+        },
+        "descriptions": {
+          "original_message": "原文內容",
+          "responses": {
+            "review": "由 {name} 查證",
+            "response": "由 {name} 回應"
+          }
+        }
+      }
+    }
+  },
+  "models": {
+    "reports": {
+      "sources": {
+        "newspaper": "新聞報章",
+        "website": "網站",
+        "facebook": "Facebook",
+        "friends": "朋友",
+        "others": "其他"
+      }
+    }
+  }
+}
