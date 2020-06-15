@@ -98,38 +98,6 @@
         }
       }
     },
-    "reports": {
-      "new": {
-        "title": "Report Fake News",
-        "labels": {
-          "content": "Content",
-          "source": "Source",
-          "url": "URL",
-          "attachment": "Attachment"
-        },
-        "placeholders": {
-          "attachment": "Choose a file or drop it here..."
-        },
-        "buttons": {
-          "browse_attachment": "Browse",
-          "submit": "Submit",
-          "reset": "Reset",
-          "submit_anyway": "Submit Anyway",
-          "go_back": "Go Back"
-        },
-        "snackbars": {
-          "success": {
-            "title": "Report Fake News",
-            "content": "Thank you for your report. We will investigate the content as soon as possible."
-          },
-          "error": {
-            "title": "Report Fake News",
-            "content": "An error has occurred during submission. Please verify your input and submit again."
-          }
-        },
-        "found_similar_topics": "Found one similar topic: | Found { count } similar topics:"
-      }
-    },
     "topics": {
       "index": {
         "title": "Topics",

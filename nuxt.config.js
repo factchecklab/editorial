@@ -6,7 +6,7 @@ module.exports = {
    ** Headers of the page
    */
   head: {
-    title: 'Maat Response',
+    title: 'Factcheck Lab',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -55,7 +55,8 @@ module.exports = {
             'zh-hk': require('./i18n/zh-hk.json')
           },
           silentFallbackWarn: true
-        }
+        },
+        strategy: 'prefix_and_default'
       }
     ],
     '@nuxtjs/sentry'

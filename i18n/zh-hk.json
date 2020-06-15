@@ -98,38 +98,6 @@
         }
       }
     },
-    "reports": {
-      "new": {
-        "title": "報告假新聞",
-        "labels": {
-          "content": "內容",
-          "source": "來源",
-          "url": "網址",
-          "attachment": "附件"
-        },
-        "placeholders": {
-          "attachment": "請選擇檔案，或把檔案拖到這裡"
-        },
-        "buttons": {
-          "browse_attachment": "尋找檔案",
-          "submit": "提交",
-          "reset": "重設",
-          "submit_anyway": "確認提交",
-          "go_back": "回到上一步"
-        },
-        "snackbars": {
-          "success": {
-            "title": "報告假新聞",
-            "content": "謝謝你的報告，我們會儘快查證此內容。"
-          },
-          "error": {
-            "title": "報告假新聞",
-            "content": "報告時出現錯誤，請確認輸入無誤再發送。"
-          }
-        },
-        "found_similar_topics": "找到 {count} 個類似主題："
-      }
-    },
     "topics": {
       "index": {
         "title": "主題",
