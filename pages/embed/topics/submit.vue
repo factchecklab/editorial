@@ -1,89 +1,157 @@
 <i18n lang="yaml">
 en:
+  title: Submit fake news
   snackbar:
     close: Close
+    error:
+      content: An error has occurred during submission. Please verify your input and submit again.
   validations:
     form:
-      content:
-        required: Content is required
-        minLength: Content must be at least {min} character long | Content must be at least {min} characters long
+      message:
+        required: Message is required
+        minLength: Message must be at least {min} character long | Message must be at least {min} characters long
+  form:
+    preamble: You can use this form to submit misinformation to Factcheck Lab. We will use the information you provide for fact checking.
+    message:
+      label: Message
+      hint: You can copy the message contained in the misinformation and paste it here.
+    url:
+      label: Web address
+      hint: If you saw the misinformation from a webpage, provide the web address (URL) here.
+    attachment:
+      label: Related attachments
+      hint: If the misinformation is an image, you can send us the image by uploading it from here.
+      placeholder: Click to browse for a file or drag the file here
+    comment:
+      label: Your opinion
+      hint: If you have any opinion about the misinformation, let us know.
+    submit:
+      label: Submit
+    reset:
+      label: Reset
+    submit_anyway:
+      label: Submit Anyway
+    go_back:
+      label: Go Back
+  found_similar_topics: "Found one similar topic: | Found { count } similar topics:"
 zh-hk:
+  title: 回報假消息
   snackbar:
     close: 關閉
+    error:
+      content: 報告時出現錯誤，請確認輸入無誤再發送。
   validations:
     form:
-      content:
+      message:
         required: 必須填上內容
         minLength: 內容太短，必須填上最少 {min} 個字
+  form:
+    preamble: 你可以利用這張表格，向 Factcheck Lab 提供假消息的資訊，以便我們可以展開事實查核。
+    message:
+      label: 假消息內容
+      hint: 你可以從假消息的來源，把假消息的內容剪貼到這裡。
+    url:
+      label: 假消息網址
+      hint: 如果你從一個網頁看到假消息，請把網址剪貼在這裡。
+    attachment:
+      label: 有關假消息的附件
+      hint: 如果你找到的假消息是一張圖片，可以在這裡上載給我們。
+      placeholder: 按此選擇檔案，或把檔案拖到這裡
+    comment:
+      label: 個人意見
+      hint: 如果你對此假消息有任何意見，可以在這裡提出。
+    submit:
+      label: 提交
+    reset:
+      label: 重設
+    submit_anyway:
+      label: 確認提交
+    go_back:
+      label: 回到上一步
+  found_similar_topics: "找到 {count} 個類似主題："
+
 </i18n>
 <template>
   <div class="col-lg-6 mx-auto">
     <v-card flat>
-      <v-card-title>
-        <h3>{{ $t('pages.reports.new.title') }}</h3>
-      </v-card-title>
       <div v-if="page === pages.REPORT">
         <v-form ref="form" @submit.prevent="onSubmit">
+          <p class="text-body-1 px-3">
+            {{ $t('form.preamble') }}
+          </p>
           <v-textarea
-            v-model="form.content"
+            v-model="form.message"
             outlined
+            persistent-hint
             required
-            :label="$t('pages.reports.new.labels.content')"
-            :error-messages="validationErrors.form.content"
+            class="my-3"
+            :label="$t('form.message.label')"
+            :hint="$t('form.message.hint')"
+            :error-messages="validationErrors.form.message"
+            placeholder=""
             rows="5"
           />
           <v-text-field
             v-model="form.url"
             name="url"
             outlined
-            :label="$t('pages.reports.new.labels.url')"
+            persistent-hint
+            class="my-3"
+            :label="$t('form.url.label')"
+            :hint="$t('form.url.hint')"
+            placeholder="https://"
           />
           <v-file-input
             v-model="file"
-            :label="$t('pages.reports.new.labels.attachment')"
-            :placeholder="$t('pages.reports.new.placeholders.attachment')"
+            :label="$t('form.attachment.label')"
+            :placeholder="$t('form.attachment.placeholder')"
             prepend-icon="mdi-paperclip"
+            :hint="$t('form.attachment.hint')"
+            persistent-hint
             outlined
+            class="my-3"
+          />
+          <v-divider class="mb-8" />
+          <v-textarea
+            v-model="form.comment"
+            name="comment"
+            outlined
+            persistent-hint
+            class="my-3"
+            :label="$t('form.comment.label')"
+            :hint="$t('form.comment.hint')"
           />
           <v-btn :loading="loading" color="primary" @click="onSubmit">
-            {{ $t('pages.reports.new.buttons.submit') }}
+            {{ $t('form.submit.label') }}
           </v-btn>
           <v-btn :disabled="loading" @click="onReset">
-            {{ $t('pages.reports.new.buttons.reset') }}
+            {{ $t('form.reset.label') }}
           </v-btn>
         </v-form>
       </div>
       <div v-else-if="page === pages.SIMILAR_TOPICS">
         <v-card-subtitle>
           <h4>
-            {{
-              $tc(
-                'pages.reports.new.found_similar_topics',
-                relatedReports.length
-              )
-            }}
+            {{ $tc('found_similar_topics', relatedReports.length) }}
           </h4>
         </v-card-subtitle>
-        <!-- FIXME(cheungpat): Content field pending changes on the server -->
-        <topic-card
-          v-for="report in relatedReports"
-          :id="report.id"
-          :key="report.id"
-          :title="report.title"
-          :content="report.title"
-          :created-at="report.createdAt"
-          :updated-at="report.updatedAt"
-          :valid="report.valid"
+        <report-card
+          v-for="(report, i) in relatedReports"
+          :key="i"
+          :summary="report.summary"
+          :explanation="report.explanation"
+          :published-at="report.publishedAt"
+          :conclusion="report.conclusion"
           embedded
           class="my-4"
         />
         <v-card-action>
           <v-form>
             <v-btn :loading="loading" color="primary" @click="onSubmitAnyway">
-              {{ $t('pages.reports.new.buttons.submit_anyway') }}
+              {{ $t('form.submit_anyway.label') }}
             </v-btn>
             <v-btn :disabled="loading" @click="onGoBackToForm">
-              {{ $t('pages.reports.new.buttons.go_back') }}
+              {{ $t('form.go_back.label') }}
             </v-btn>
           </v-form>
         </v-card-action>
@@ -101,7 +169,7 @@ zh-hk:
 <script>
 import gql from 'graphql-tag'
 import { required, minLength } from 'vuelidate/lib/validators'
-import TopicCard from '@/components/TopicCard.vue'
+import ReportCard from '@/components/ReportCard.vue'
 import { topicMarshaler } from '@/utils/marshalers.js'
 
 const pages = {
@@ -111,8 +179,9 @@ const pages = {
 
 const defaultFormData = () => {
   return {
-    content: '',
+    message: '',
     url: '',
+    comment: '',
     attachments: []
   }
 }
@@ -154,11 +223,11 @@ const fieldValidationErrors = (field, keypath, tc) => {
 export default {
   layout: 'embed',
   components: {
-    TopicCard
+    ReportCard
   },
   validations: {
     form: {
-      content: { required, minLength: minLength(3) }
+      message: { required, minLength: minLength(3) }
     }
   },
   data() {
@@ -204,9 +273,9 @@ export default {
         `,
         variables: {
           input: {
-            content: this.form.content,
-            source: 'Web Form',
+            message: this.form.message,
             url: this.form.url,
+            comment: this.form.comment,
             attachments: this.form.attachments
           }
         }
@@ -215,22 +284,26 @@ export default {
 
     async upload() {
       const {
-        data: { uploadAsset }
+        data: { createAsset }
       } = await this.$apollo.mutate({
         mutation: gql`
-          mutation uploadAsset($file: Upload!) {
-            uploadAsset(file: $file) {
-              id
-              url
+          mutation createAsset($input: CreateAssetInput!) {
+            createAsset(input: $input) {
+              asset {
+                id
+                url
+              }
               token
             }
           }
         `,
         variables: {
-          file: this.file
+          input: {
+            file: this.file
+          }
         }
       })
-      return uploadAsset
+      return createAsset
     },
 
     onReset() {
@@ -243,20 +316,24 @@ export default {
         data: { relatedReports }
       } = await this.$apollo.query({
         query: gql`
-          query RelatedReports($content: String) {
-            relatedReports: searchRelatedReports(content: $content) {
+          query RelatedReports($originalMessage: String, $originalUrl: URL) {
+            relatedReports: searchRelatedReports(
+              originalMessage: $originalMessage
+              originalUrl: $originalUrl
+            ) {
               nodes {
-                id
-                title
-                createdAt
-                updatedAt
+                summary
+                explanation
+                publishedAt
                 conclusion
+                fullReportUrl
               }
             }
           }
         `,
         variables: {
-          content: this.form.content
+          originalMessage: this.form.message,
+          originalUrl: this.form.url
         },
         fetchPolicy: 'no-cache'
       })
@@ -283,8 +360,11 @@ export default {
       } catch (err) {
         this.snackbar = {
           show: true,
-          text: this.$t('pages.reports.new.snackbars.error.content')
+          text: this.$t('snackbar.error.content')
         }
+
+        // eslint-disable-next-line no-console
+        console.error(err)
         return
       } finally {
         this.loading = false
@@ -297,19 +377,21 @@ export default {
       try {
         this.loading = true
         if (this.file) {
-          const asset = await this.upload()
+          const { token } = await this.upload()
           this.form.attachments.push({
-            type: 'asset',
-            assetToken: asset.token
+            assetToken: token
           })
         }
         await this.submit()
-        this.$router.push(this.localePath({ name: 'embed-reports-thankyou' }))
+        this.$router.push(this.localePath({ name: 'embed-topics-thankyou' }))
       } catch (err) {
         this.snackbar = {
           show: true,
-          text: this.$t('pages.reports.new.snackbars.error.content')
+          text: this.$t('snackbar.error.content')
         }
+
+        // eslint-disable-next-line no-console
+        console.error(err)
       } finally {
         this.loading = false
       }
@@ -318,6 +400,9 @@ export default {
     onGoBackToForm() {
       this.page = pages.REPORT
     }
+  },
+  head() {
+    return { title: this.$t('title') }
   }
 }
 </script>

@@ -6,7 +6,7 @@ module.exports = {
    ** Headers of the page
    */
   head: {
-    title: 'Maat Response',
+    title: 'Factcheck Lab',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -29,12 +29,7 @@ module.exports = {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [
-    { src: '~/plugins/apollo' },
-    { src: '~/plugins/vuelidate' },
-    { src: '~/plugins/vue-masonry', ssr: false },
-    { src: '~/plugins/wordcloud', mode: 'client' }
-  ],
+  plugins: [{ src: '~/plugins/apollo' }, { src: '~/plugins/vuelidate' }],
   /*
    ** Nuxt.js dev-modules
    */
@@ -60,7 +55,8 @@ module.exports = {
             'zh-hk': require('./i18n/zh-hk.json')
           },
           silentFallbackWarn: true
-        }
+        },
+        strategy: 'prefix_and_default'
       }
     ],
     '@nuxtjs/sentry'
@@ -88,7 +84,8 @@ module.exports = {
   },
   env: {
     GRAPHQL_HTTP_ENDPOINT:
-      process.env.GRAPHQL_HTTP_ENDPOINT || 'http://localhost:4000',
+      process.env.GRAPHQL_HTTP_ENDPOINT ||
+      'https://api.factchecklab.org/graphql/editorial',
     GRAPHQL_BROWSER_HTTP_ENDPOINT:
       process.env.GRAPHQL_BROWSER_HTTP_ENDPOINT || null,
     GRAPHQL_WS_ENDPOINT: process.env.GRAPHQL_WS_ENDPOINT || null,
