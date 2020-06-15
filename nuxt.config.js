@@ -29,12 +29,7 @@ module.exports = {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [
-    { src: '~/plugins/apollo' },
-    { src: '~/plugins/vuelidate' },
-    { src: '~/plugins/vue-masonry', ssr: false },
-    { src: '~/plugins/wordcloud', mode: 'client' }
-  ],
+  plugins: [{ src: '~/plugins/apollo' }, { src: '~/plugins/vuelidate' }],
   /*
    ** Nuxt.js dev-modules
    */
