@@ -230,9 +230,6 @@ export default {
       message: { required, minLength: minLength(3) }
     }
   },
-  head() {
-    return { title: this.$t('title') }
-  },
   data() {
     return {
       form: defaultFormData(),
@@ -287,22 +284,26 @@ export default {
 
     async upload() {
       const {
-        data: { uploadAsset }
+        data: { createAsset }
       } = await this.$apollo.mutate({
         mutation: gql`
-          mutation uploadAsset($file: Upload!) {
-            uploadAsset(file: $file) {
-              id
-              url
+          mutation createAsset($input: CreateAssetInput!) {
+            createAsset(input: $input) {
+              asset {
+                id
+                url
+              }
               token
             }
           }
         `,
         variables: {
-          file: this.file
+          input: {
+            file: this.file
+          }
         }
       })
-      return uploadAsset
+      return createAsset
     },
 
     onReset() {
@@ -376,10 +377,9 @@ export default {
       try {
         this.loading = true
         if (this.file) {
-          const asset = await this.upload()
+          const { token } = await this.upload()
           this.form.attachments.push({
-            type: 'asset',
-            assetToken: asset.token
+            assetToken: token
           })
         }
         await this.submit()
@@ -400,6 +400,9 @@ export default {
     onGoBackToForm() {
       this.page = pages.REPORT
     }
+  },
+  head() {
+    return { title: this.$t('title') }
   }
 }
 </script>
