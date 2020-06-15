@@ -11,7 +11,7 @@
     "generate": "nuxt generate",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
     "lint-schema": "GRAPHQL_SCHEMA_JSON_FILE=schema.json yarn lint",
-    "download-schema": "yarn run apollo client:download-schema --endpoint ${GRAPHQL_HTTP_ENDPOINT:-http://localhost:4000} schema.json",
+    "download-schema": "yarn run apollo client:download-schema --endpoint ${GRAPHQL_HTTP_ENDPOINT:-https://api.factchecklab.org/graphql/editorial} schema.json",
     "test": "jest"
   },
   "dependencies": {

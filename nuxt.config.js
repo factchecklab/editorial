@@ -84,7 +84,8 @@ module.exports = {
   },
   env: {
     GRAPHQL_HTTP_ENDPOINT:
-      process.env.GRAPHQL_HTTP_ENDPOINT || 'http://localhost:4000',
+      process.env.GRAPHQL_HTTP_ENDPOINT ||
+      'https://api.factchecklab.org/graphql/editorial',
     GRAPHQL_BROWSER_HTTP_ENDPOINT:
       process.env.GRAPHQL_BROWSER_HTTP_ENDPOINT || null,
     GRAPHQL_WS_ENDPOINT: process.env.GRAPHQL_WS_ENDPOINT || null,
