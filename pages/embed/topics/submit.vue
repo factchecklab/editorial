@@ -34,7 +34,7 @@ en:
     go_back:
       label: Go Back
   found_similar_topics: "Found one similar topic: | Found { count } similar topics:"
-zh-HK:
+zh-hk:
   title: 回報假消息
   snackbar:
     close: 關閉
