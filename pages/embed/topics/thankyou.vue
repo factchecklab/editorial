@@ -3,7 +3,7 @@ en:
   thankyou: We have received your submission. Thank you.
   again: Report again
   title: Submit fake news
-zh-hk:
+zh-HK:
   thankyou: 我們已經收到你回報的消息，謝謝。
   again: 再來一次
   title: 回報假消息

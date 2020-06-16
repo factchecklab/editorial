@@ -4,7 +4,7 @@ en:
     created_at: "Created {deltaTime}"
     updated_at: "Updated {deltaTime}"
     reported_at: "Reported {deltaTime}"
-zh-hk:
+zh-HK:
   time:
     created_at: "於{deltaTime}建立"
     updated_at: "於{deltaTime}更新"
