@@ -9,7 +9,7 @@ en:
       Admin
     to_public:
       Back to Public
-zh-hk:
+zh-HK:
   navigation_bar:
     title: Maat Reseponse
     manage_reports: 管理報告
@@ -52,8 +52,8 @@ zh-hk:
           <v-list-item-title>English</v-list-item-title>
         </v-list-item>
         <v-list-item
-          :active="$i18n.locale === 'zh-hk'"
-          :to="switchLocalePath('zh-hk')"
+          :active="$i18n.locale === 'zh-HK'"
+          :to="switchLocalePath('zh-HK')"
         >
           <v-list-item-title>中文</v-list-item-title>
         </v-list-item>

@@ -46,13 +46,13 @@ module.exports = {
       'nuxt-i18n',
       {
         vueI18nLoader: true,
-        locales: ['zh-hk', 'en'],
-        defaultLocale: 'zh-hk',
+        locales: ['zh-HK', 'en'],
+        defaultLocale: 'zh-HK',
         vueI18n: {
-          fallbackLocale: 'zh-hk',
+          fallbackLocale: 'zh-HK',
           messages: {
             en: require('./i18n/en.json'),
-            'zh-hk': require('./i18n/zh-hk.json')
+            'zh-HK': require('./i18n/zh-HK.json')
           },
           silentFallbackWarn: true
         },

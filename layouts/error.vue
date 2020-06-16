@@ -9,7 +9,7 @@ en:
   description:
     generic: An error occurred while rendering the page.
     reported: An error occurred while rendering the page. Developer is alerted of the problem.
-zh-hk:
+zh-HK:
   back-to-home: 回到主頁
   title: 顯示頁面時發生錯誤
   description:
