@@ -101,16 +101,18 @@ zh-hk:
             :hint="$t('form.url.hint')"
             placeholder="https://"
           />
-          <v-file-input
-            v-model="file"
-            :label="$t('form.attachment.label')"
-            :placeholder="$t('form.attachment.placeholder')"
-            prepend-icon="mdi-paperclip"
-            :hint="$t('form.attachment.hint')"
-            persistent-hint
-            outlined
-            class="my-3"
-          />
+          <div @drop.prevent="addDropFile" @dragover.prevent>
+            <v-file-input
+              v-model="file"
+              :label="$t('form.attachment.label')"
+              :placeholder="$t('form.attachment.placeholder')"
+              prepend-icon="mdi-paperclip"
+              :hint="$t('form.attachment.hint')"
+              persistent-hint
+              outlined
+              class="my-3"
+            />
+          </div>
           <v-divider class="mb-8" />
           <v-textarea
             v-model="form.comment"
@@ -308,6 +310,7 @@ export default {
 
     onReset() {
       this.form = defaultFormData()
+      this.file = null
       this.$v.$reset()
     },
 
@@ -399,6 +402,10 @@ export default {
 
     onGoBackToForm() {
       this.page = pages.REPORT
+    },
+
+    addDropFile(e) {
+      this.file = e.dataTransfer.files[0]
     }
   },
   head() {
