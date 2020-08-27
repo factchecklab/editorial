@@ -30,7 +30,7 @@
     "cross-env": "^5.2.0",
     "cross-fetch": "^3.0.4",
     "dotenv": "^8.2.0",
-    "graphql": "^14.6.0",
+    "graphql": "^15.3.0",
     "graphql-tag": "^2.10.3",
     "koa": "^2.6.2",
     "moment": "^2.24.0",
