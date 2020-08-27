@@ -1,3 +1,9 @@
+<!--
+SPDX-FileCopyrightText: 2020 tech@factchecklab <tech@factchecklab.org>
+
+SPDX-License-Identifier: AGPL-3.0-or-later
+-->
+
 <i18n lang="yaml">
 en:
   title: Submit fake news

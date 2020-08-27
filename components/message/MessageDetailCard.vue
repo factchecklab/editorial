@@ -1,3 +1,9 @@
+<!--
+SPDX-FileCopyrightText: 2020 tech@factchecklab <tech@factchecklab.org>
+
+SPDX-License-Identifier: AGPL-3.0-or-later
+-->
+
 <template>
   <v-card>
     <v-card-title class="subtitle-2 font-weight-light text--secondary">

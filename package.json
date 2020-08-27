@@ -2,7 +2,11 @@
   "name": "editorial",
   "version": "1.0.0",
   "description": "My mind-blowing Nuxt.js project",
-  "author": "Maat Project",
+  "author": {
+    "name": "tech@factchecklab",
+    "email": "tech@factchecklab.org"
+  },
+  "license": "AGPL-3.0-or-later",
   "private": true,
   "scripts": {
     "dev": "cross-env NODE_ENV=development nodemon server/index.js --watch server",
