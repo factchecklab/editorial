@@ -48,7 +48,6 @@ module.exports = {
         vueI18nLoader: true,
         locales: ['zh-hk', 'en'],
         defaultLocale: 'zh-hk',
-        detectBrowserLanguage: false,
         vueI18n: {
           fallbackLocale: 'zh-hk',
           messages: {
