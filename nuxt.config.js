@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2020 tech@factchecklab <tech@factchecklab.org>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 require('dotenv').config()
 
 module.exports = {
@@ -56,7 +60,10 @@ module.exports = {
           },
           silentFallbackWarn: true
         },
-        strategy: 'prefix_and_default'
+        strategy: 'prefix_and_default',
+        detectBrowserLanguage: {
+          alwaysRedirect: false
+        }
       }
     ],
     '@nuxtjs/sentry'

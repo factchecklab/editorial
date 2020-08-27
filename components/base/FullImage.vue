@@ -1,3 +1,9 @@
+<!--
+SPDX-FileCopyrightText: 2020 tech@factchecklab <tech@factchecklab.org>
+
+SPDX-License-Identifier: AGPL-3.0-or-later
+-->
+
 <template>
   <v-img :src="src" max-width="100%" min-height="50">
     <template v-slot:placeholder>

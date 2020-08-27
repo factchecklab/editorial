@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2020 tech@factchecklab <tech@factchecklab.org>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 /**
  * This function returns the supplied text with spacing added at the beginning
  * and/or the end, according to the current locale. This helps to provide

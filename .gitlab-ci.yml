@@ -32,6 +32,15 @@ audit:
     paths:
       - node_modules/
 
+license:
+  stage: test
+  image:
+    name: fsfe/reuse
+    entrypoint: [""]
+  script:
+    - reuse lint
+  allow_failure: true
+
 graphql-lint:
   stage: test
   image: node:lts

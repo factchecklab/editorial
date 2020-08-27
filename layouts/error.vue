@@ -1,4 +1,10 @@
 <!--
+SPDX-FileCopyrightText: 2020 tech@factchecklab <tech@factchecklab.org>
+
+SPDX-License-Identifier: AGPL-3.0-or-later
+-->
+
+<!--
   Adapted from https://github.com/nuxt/nuxt.js/blob/v2.12.1/packages/vue-app/template/components/nuxt-error.vue
   as per https://nuxtjs.org/guide/views/#error-page.
 -->
