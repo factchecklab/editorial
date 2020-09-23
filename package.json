@@ -19,7 +19,6 @@
     "test": "jest"
   },
   "dependencies": {
-    "@nuxtjs/sentry": "^4.0.3",
     "@nuxtjs/vuetify": "^1.11.0",
     "apollo-cache-inmemory": "^1.6.6",
     "apollo-client": "^2.6.10",

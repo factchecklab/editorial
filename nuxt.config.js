@@ -65,8 +65,7 @@ module.exports = {
           alwaysRedirect: false
         }
       }
-    ],
-    '@nuxtjs/sentry'
+    ]
   ],
   /*
    ** Build configuration
